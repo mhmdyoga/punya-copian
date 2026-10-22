@@ -25,10 +25,19 @@ h1{font-family:'Dancing Script';color:#ff4d8a;font-size:2.8rem}
 .reasons{text-align:left;display:grid;gap:10px;margin-top:14px}
 .reasons span{background:#ffe3ec;padding:11px 14px;border-radius:12px}
 .letter{text-align:left;line-height:1.85;white-space:pre-line}
+.mbtn{position:fixed;top:14px;right:14px;z-index:100;display:none;align-items:center;gap:8px;background:#fff;color:#ff4d8a;border:2px solid #ffc2d6;padding:8px 16px;border-radius:50px;font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;box-shadow:0 6px 16px rgba(255,77,138,.2)}
+.mbtn.show{display:flex}
+.mbtn .eq{display:inline-block;animation:spin 3s linear infinite}
+.mbtn.paused .eq{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 <div class="progress" id="prog" style="width:14%"></div>
+
+<button class="mbtn" id="mbtn" onclick="toggleMusic()" aria-label="Putar atau jeda musik">
+  <span class="eq">🎵</span><span id="mlabel">W2E – Love</span>
+</button>
 
 <div class="page active" id="p1">
   <div style="font-size:80px">💌</div>
@@ -118,18 +127,52 @@ I love you more than yesterday, Ellen🤍.
 </div>
 
 <div class="dots" id="dots"></div>
-<audio id="musik" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a650f6.mp3"></audio>
+
+<audio id="musik" loop autoplay preload="auto"></audio>
 
 <script>
+const MUSIC_SRC = "love.mp3";
+
 const total=7;
+const musik=document.getElementById('musik');
+const mbtn=document.getElementById('mbtn');
+const mlabel=document.getElementById('mlabel');
+
+musik.src=MUSIC_SRC;
+musik.volume=0.7;
+musik.addEventListener('play',()=>{mbtn.classList.remove('paused');mlabel.textContent='W2E – Love';});
+musik.addEventListener('pause',()=>{mbtn.classList.add('paused');mlabel.textContent='Putar lagu';});
+musik.addEventListener('error',()=>{mbtn.classList.remove('show');mbtn.style.display='none';console.warn('File lagu tidak ditemukan: '+MUSIC_SRC);});
+
+let userPaused=false;
+mbtn.classList.add('show','paused');
+
+function tryPlay(){
+  if(!userPaused && musik.paused){musik.play().catch(()=>{});}
+}
+function toggleMusic(){
+  if(musik.paused){userPaused=false;musik.play().catch(()=>{});}
+  else{userPaused=true;musik.pause();}
+}
+function startOnInteraction(){
+  tryPlay();
+}
+['click','touchstart','keydown','pointerdown'].forEach(ev=>document.addEventListener(ev,startOnInteraction,{passive:true}));
+musik.addEventListener('playing',()=>{
+  ['click','touchstart','keydown','pointerdown'].forEach(ev=>document.removeEventListener(ev,startOnInteraction));
+});
+window.addEventListener('load',tryPlay);
+tryPlay();
+
 document.getElementById('dots').innerHTML=Array.from({length:total},(_,i)=>`<div class="dot ${i==0?'active':''}" id="d${i+1}"></div>`).join('');
+
 function go(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('p'+n).classList.add('active');
   document.getElementById('prog').style.width=(n/total*100)+'%';
   document.querySelectorAll('.dot').forEach(d=>d.classList.remove('active'));
   document.getElementById('d'+n).classList.add('active');
-  if(n==2) document.getElementById('musik').play().catch(()=>{});
+  tryPlay();
   if(n==7){
     const no="6289505536912";
     document.getElementById('wa').href=`https://wa.me/${no}?text=`+encodeURIComponent("Aku udah liat semua 7 halamannya sayang 😭❤️ Makasih banyak, aku sayang kamu!");
