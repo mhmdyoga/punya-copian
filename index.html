@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk CantikkuEllen ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#fff6f9;color:#4a2c3a;overflow:hidden}
+.page{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center}
+.page.active{display:flex;animation:up .7s ease}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+h1{font-family:'Dancing Script';color:#ff4d8a;font-size:2.8rem}
+.card{background:#fff;border-radius:28px;padding:32px 26px;box-shadow:0 20px 60px rgba(255,77,138,.18);max-width:680px;width:100%;max-height:88vh;overflow-y:auto}
+.btn{background:#ff4d8a;color:#fff;border:none;padding:14px 32px;border-radius:50px;cursor:pointer;margin-top:22px;box-shadow:0 10px 20px rgba(255,77,138,.3);font-weight:600}
+.btn2{background:transparent;color:#ff4d8a;border:2px solid #ff4d8a}
+.progress{position:fixed;top:0;left:0;height:4px;background:#ff4d8a;z-index:99;transition:.4s}
+.dots{position:fixed;bottom:18px;display:flex;gap:7px;z-index:99}
+.dot{width:8px;height:8px;background:#ffd1df;border-radius:50%;transition:.3s}
+.dot.active{background:#ff4d8a;width:24px}
+.timeline{text-align:left;margin-top:12px}
+.timeline div{margin:16px 0;padding-left:14px;border-left:3px solid #ffc2d6}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.gallery img{width:100%;height:110px;object-fit:cover;border-radius:12px}
+.reasons{text-align:left;display:grid;gap:10px;margin-top:14px}
+.reasons span{background:#ffe3ec;padding:11px 14px;border-radius:12px}
+.letter{text-align:left;line-height:1.85;white-space:pre-line}
+</style>
+</head>
+<body>
+<div class="progress" id="prog" style="width:14%"></div>
+
+<div class="page active" id="p1">
+  <div style="font-size:80px">💌</div>
+  <h1>Hai, CantikkuEllen</h1>
+  <p style="margin:14px 0;opacity:.8">Aku buat beberapa halaman khusus spesial untuk cantikku. Siap sayanggku?</p>
+  <button class="btn" onclick="go(2)">Buka Ya Sayanggku❤️</button>
+</div>
+
+<div class="page" id="p2">
+  <div class="card">
+    <div style="font-size:70px">🎂</div>
+    <h1>Happy Birthday, Ellen!</h1>
+    <p style="margin-top:12px;line-height:1.7">Selamat ulang tahun, CantikkuEllen ❤️<br>Semoga sehat selalu dan diberi umur panjang cintahhh, bahagia selalu sayangg, dan semua mimpi kamu tercapai yaa cintaaku. Terima kasih sudah lahir di dunia ini cayanggku.</p>
+    <button class="btn" onclick="go(3)">Lanjut cintahh →</button>
+  </div>
+</div>
+
+<div class="page" id="p3">
+  <div class="card">
+    <h1>Our Journey</h1>
+    <div class="timeline">
+      <div><b>03-03-26</b><br>Awal cerita kita. Hari dimana aku mulai jatuh cinta sama kamu sayangg.</div>
+      <div><b>01-06-26</b><br>Kita resmi menjadi pacar. pimoy & lemoy😘</div>
+      <div><b>24-10-26</b><br>Hari ini, ulang tahun kamu sayangg, dan aku masih sangat mencintaimu sampai tua nanti.</div>
+    </div>
+    <button class="btn" onclick="go(4)">Kenangan Kita →</button>
+  </div>
+</div>
+
+<div class="page" id="p4">
+  <div class="card">
+    <h1>Our Memories</h1>
+    <div class="gallery">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-fce19ee4-a026-4c08-ab54-4c96e583ba25.jpg">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-d112f474-f48b-48f1-aea0-585c1f14c795.jpg">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-6f3e7f3a-9fcf-4e5d-9815-4e213f98727b.jpg">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-76281c03-42f6-49ac-922b-2ed119753544.jpg">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-35d08d38-7fcd-4675-845d-dda2a1dd5a0e.jpg">
+      <img src="https://cdn.phototourl.com/member/2026-10-22-bcc59b63-dc8d-4ccf-ba70-670a48258e9a.jpg">
+    </div>
+    <p style="font-size:.8rem;margin-top:10px;color:#aaa">I Love You Sayanggku!</p>
+    <button class="btn" onclick="go(5)">masih ada cintahhh →</button>
+  </div>
+</div>
+
+<div class="page" id="p5">
+  <div class="card">
+    <h1>dan ini 10 Alasan Aku Sayangg kamuu cintahh</h1>
+    <div class="reasons">
+      <span>1. Senyumanmu membuat capekku menjadi senang</span>
+      <span>2. Cara kamu peduli sama aku bikin aku senangg</span>
+      <span>3. Kamu rumah ternyaman buat aku sayanggku</span>
+      <span>4. Kamu bikin hari biasa menjadi hari spesial</span>
+      <span>5. Aku bisa menjadi diriku sendiri di depanmu</span>
+      <span>6. Tawa kamu candu membuat aku susah melupakanmu</span>
+      <span>7. Kamu selalu mendukung mimpiku</span>
+      <span>8. Kamu sangat cantikk sayanggku</span>
+      <span>9. Masa depan indah kalau bersama kamu sayanggkuu</span>
+      <span>10. Karena kamu adalah cintaaku.</span>
+    </div>
+    <button class="btn" onclick="go(6)">Surat untuk myy cayanggg →</button>
+  </div>
+</div>
+
+<div class="page" id="p6">
+  <div class="card">
+    <h1 style="text-align:center">Dear Ellen ❤️</h1>
+    <div class="letter">
+Loving you feels like finding a place where my heart can finally rest. You're my comfort, my safe space, Ellen.
+
+Aku gak butuh hubungan sempurna, aku cuma butuh kita. Tumbuh bareng, saling memilih, dari 01-06-26 sampai selamanya ya sayangg.
+
+I love you more than yesterday, Ellen🤍.
+    </div>
+    <button class="btn" style="width:100%" onclick="go(7)">Halaman terakhir untukmu sayangg ❤️</button>
+  </div>
+</div>
+
+<div class="page" id="p7">
+  <div class="card">
+    <div style="font-size:80px">🎁❤️</div>
+    <h1>Forever Yours, Ellen</h1>
+    <p style="margin:18px 0;line-height:1.7">suatu saat mungkin Website ini akan hilang, tapi rasa sayangku kepada kamu gak akan pernah hilang. Aku sayang kamu, hari ini, besok dan selamanya.</p>
+    <a id="wa" class="btn" style="display:inline-block;text-decoration:none" target="_blank">bales aku di wa cintahh 🤗</a>
+    <div style="margin-top:14px"><button class="btn btn2" onclick="go(1)">halaman pertama sayanggkuu</button></div>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+<audio id="musik" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_c8c8a650f6.mp3"></audio>
+
+<script>
+const total=7;
+document.getElementById('dots').innerHTML=Array.from({length:total},(_,i)=>`<div class="dot ${i==0?'active':''}" id="d${i+1}"></div>`).join('');
+function go(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+  document.getElementById('prog').style.width=(n/total*100)+'%';
+  document.querySelectorAll('.dot').forEach(d=>d.classList.remove('active'));
+  document.getElementById('d'+n).classList.add('active');
+  if(n==2) document.getElementById('musik').play().catch(()=>{});
+  if(n==7){
+    const no="6289505536912";
+    document.getElementById('wa').href=`https://wa.me/${no}?text=`+encodeURIComponent("Aku udah liat semua 7 halamannya sayang 😭❤️ Makasih banyak, aku sayang kamu!");
+    for(let i=0;i<80;i++){let d=document.createElement('div');d.innerHTML='❤️';d.style.position='fixed';d.style.left=Math.random()*100+'vw';d.style.top='-10px';d.style.animation=`fall ${Math.random()*3+3}s linear forwards`;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)}
+  }
+}
+</script>
+<style>@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}</style>
+</body>
+</html>
